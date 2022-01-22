@@ -206,6 +206,18 @@ by switching to compilation-mode.
 
 <img src="assets/eshell.png">
 
+You could set your Emacs to use compilation-mode for a `.carve` file extension, with this configuration:
+
+```elisp
+(add-to-list 'auto-mode-alist '("\\.carve\\'" . compilation-mode))
+```
+
+And then output to e.g. `report.carve`:
+
+    carve --opts '{:paths ["src" "test"] :report {:format :text}}' > report.carve
+
+## Generate initial ignore file
+
 Using `:report {:format :ignore}` returns the list of unused vars in the same format as .carve/ignore so you can create the initial ignore file or append to an existing one.
 For example with:
 
